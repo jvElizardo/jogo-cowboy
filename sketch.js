@@ -24,9 +24,12 @@ var bala;
 var balaImg;
 var codigoCowboy=[];
 var codigoInimigo=[];
-var icowboy;
-var iinimigo;
-
+var icowboy=0;
+var iinimigo=0;
+var armaInimigo;
+var armaInimigoImg;
+var balaInimigo;
+var balaInimigoImg;
 // carrega as animaçoes 
 function preload()
 {
@@ -37,6 +40,8 @@ indioImg=loadImage("teste3.png");
 bandidoImg=loadImage("teste2.png");
 armaImg=loadImage("arma.png");
 balaImg=loadImage("bala3.png");
+armaInimigoImg=loadImage("arma2.png");
+balaInimigoImg=loadImage("bala32.png");
 }
 
 function setup(){
@@ -84,6 +89,12 @@ function setup(){
   bala.addImage(balaImg);
   bala.scale=0.01;
   bala.visible=false;
+  armaInimigo=createSprite(width-130,height-40,10,30);
+  armaInimigo.addImage(armaInimigoImg);
+  balaInimigo=createSprite(width-135,height-40,10,30);
+  balaInimigo.addImage(balaInimigoImg);
+  balaInimigo.scale=0.01;
+  balaInimigo.visible=true;
 }
 function numeros(){
     if (frameCount%100===0&&contador<3){
@@ -107,7 +118,8 @@ function draw(){
   //definir a cor do plano de fundo 
   background(fundoIMG); 
   numeros();
-  confere();
+  confere(codigoCowboy,bala);
+  confere(codigoInimigo,balaInimigo);
  /* text("pontos"+pontos,50,20);
   
   if (estado_de_jogo===inicio)
@@ -170,11 +182,20 @@ function numeraçaoInimigo(){
 
 }
 
-function confere(){
-  if(codigoCowboy.length===3&&codigo.length===3)
- {if(JSON.stringify(codigo)===JSON.stringify(codigoCowboy))
-  { bala.visible=true;
-    bala.velocityX=18;
+function confere(personagem,tiro){
+  
+  if(personagem.length===3 && codigo.length===3)
+  
+ {
+   if(JSON.stringify(codigo)===JSON.stringify(personagem))
+
+  { tiro.visible=true;
+    if(tiro===balaInimigo){
+      tiro.velocityX=-18;
+    }
+    else{
+      tiro.velocityX=18
+    }
     console.log("qq");
   }
 }
