@@ -11,19 +11,40 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
+
+     <!-- Firebase SDK 
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBCAec_ChYXj36dE3CF81OcjrHo4aJUZ4s",
+      authDomain: "jogo-jvc.firebaseapp.com",
+      projectId: "jogo-jvc",
+      storageBucket: "jogo-jvc.appspot.com",
+      messagingSenderId: "336779368277",
+      appId: "1:336779368277:web:0658084ae32534604001dc",
+      measurementId: "G-37CYGQ50J5"
+    };
+    
+    -->
+
+     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+
     <script>
-        const firebaseConfig = {
-  apiKey: "AIzaSyACCvZXATeM8eobVEhUkNb4ZLKb2CQPx6w",
-  authDomain: "jogocowboy-27f71.firebaseapp.com",
-  databaseURL: "https://jogocowboy-27f71-default-rtdb.firebaseio.com",
-  projectId: "jogocowboy-27f71",
-  storageBucket: "jogocowboy-27f71.appspot.com",
-  mesagingSenderId: "41387263447",
-  appId: "1:41387263447:web:fb29bdfadf68fe6449b792"
-};
-        firebase.intializeApp(firebaseConfig);
-        </script>
-  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBCAec_ChYXj36dE3CF81OcjrHo4aJUZ4s",
+      authDomain: "jogo-jvc.firebaseapp.com",
+      databaseURL: "https://jogo-jvc-default-rtdb.firebaseio.com",
+      projectId: "jogo-jvc",
+      storageBucket: "jogo-jvc.appspot.com",
+      messagingSenderId: "336779368277",
+      appId: "1:336779368277:web:0658084ae32534604001dc",
+      measurementId: "G-37CYGQ50J5"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+  </script>
+
   </head>
   <body>
       <script src="sketch.js"></script>

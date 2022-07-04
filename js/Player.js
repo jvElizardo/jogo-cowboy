@@ -2,6 +2,8 @@ class Player {
     constructor() {
       this.name = null;
       this.index = null;
+      this.positionX = 0;
+      this.positionY = 0;
       this.isButtonPressed = false;
       this.time = 0;
     }
@@ -17,6 +19,8 @@ class Player {
   
       database.ref(playerIndex).set({
         name: this.name,
+        positionX: this.positionX,
+        positionY: this.positionY,
         isButtonPressed: false,
         time: 0,
       });
@@ -38,6 +42,8 @@ class Player {
     update() {
       var playerIndex = "players/player" + this.index;
       database.ref(playerIndex).update({
+        positionX: this.positionX,
+        positionY: this.positionY,
         isButtonPressed: false,
         time: 0,
       });

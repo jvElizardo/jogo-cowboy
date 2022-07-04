@@ -1,6 +1,18 @@
 class Game {
     constructor() {
-      
+      this.entrada_cowboy = createInput("");
+      this.entrada_inimigo = createInput("");
+      this.botao_cowboy = createButton("");
+      this.botao_inimigo = createButton("");
+    }
+  
+    gameMousePressed() {
+      this.botao_cowboy.mousePressed(() => {
+        this.numeraçao();
+      });
+      this.botao_inimigo.mousePressed(() => {
+        this.numeraçaoInimigo();
+      });
     }
   
     getState() {
@@ -34,24 +46,6 @@ class Game {
         bandido=createSprite(width-100,height-60,10,20);
         bandido.addImage(bandidoImg);
 
-        botao=createImg("botao.png");
-        botao.position(width/3,height-150);
-        botao.size(60,60);
-        botao.mouseClicked(this.numeraçao);
-
-        botaoinimigo=createImg("botao.png");
-        botaoinimigo.position(width-250,height-150);
-        botaoinimigo.size(60,60);
-        botaoinimigo.mouseClicked(this.numeraçaoInimigo);
-
-        entrada_cowboy=createInput("")
-        entrada_cowboy.position(width/3,height-90);
-        entrada_cowboy.size(60,60);
-
-        entrada_inimigo=createInput("");
-        entrada_inimigo.position(width-250,height-90);
-        entrada_inimigo.size(60,60);
-
         arma=createSprite(width/4+45,height-80,10,30);
         arma.addImage(armaImg);
 
@@ -67,55 +61,89 @@ class Game {
         balaInimigo.addImage(balaInimigoImg);
         balaInimigo.scale=0.01;
         balaInimigo.visible=false;
+
+        jogadores = [cowboy,bandido];
         
     }
   
     handleElements() {
       form.hide();
-      form.titleImg.position(40, 50);
-      form.titleImg.class("gameTitleAfterEffect");
+      form.title.position(40, 50);
+      form.title.class("gameTitleAfterEffect");
+
+      this.entrada_cowboy.position(width/3, height-90);
+      this.entrada_inimigo.position(width-250, height-90);
+
+      this.entrada_cowboy.class("numberInput");
+      this.entrada_inimigo.class("numberInput");
+
+      this.botao_cowboy.position(width/3, height-150);
+      this.botao_inimigo.position(width-250, height-150);
+
+      this.botao_cowboy.class("playButton");
+      this.botao_inimigo.class("playButton");
+
     }
   
     play() {
       this.handleElements();
   
-      Player.getPlayersInfo();
+      //Player.getPlayersInfo();
 
-        this.numeros();
+      this.gameMousePressed();
 
-        this.confere(codigoCowboy,bala);
+      /*botao=createImg("assets/botao.png");
+      botao.position(width/3,height-150);
+      botao.size(60,60);
+      botao.mouseClicked(this.numeraçao);
 
-        this.confere(codigoInimigo,balaInimigo);
- 
-        drawSprites(); 
+      botaoinimigo=createImg("assets/botao.png");
+      botaoinimigo.position(width-250,height-150);
+      botaoinimigo.size(60,60);
+      botaoinimigo.mouseClicked(this.numeraçaoInimigo);
+
+      entrada_cowboy=createInput("")
+      entrada_cowboy.position(width/3,height-90);
+      entrada_cowboy.size(60,60);
+
+      entrada_inimigo=createInput("");
+      entrada_inimigo.position(width-250,height-90);
+      entrada_inimigo.size(60,60);*/
+
+      this.numeros();
+
+      this.confere(codigoCowboy,bala);
+
+      this.confere(codigoInimigo,balaInimigo);
       
-     /* if (allPlayers !== undefined) {
+    /* if (allPlayers !== undefined) {
         //alterar a imagem
-        image(track, 0, -height * 5, width, height * 6);
+        console.log("players definidos");
+        image(fundoIMG, 0, 0, width, height);
   
          //índice da matriz
-        //var index = 0;
+        var index = 0;
         for (var plr in allPlayers) {
           //adicione 1 ao índice para cada loop
           index = index + 1;
   
           //alterar para os personagens
           var x = allPlayers[plr].positionX;
-          var y = height - allPlayers[plr].positionY;
+          var y = allPlayers[plr].positionY;
   
-          cars[index - 1].position.x = x;
-          cars[index - 1].position.y = y;
+          jogadores[index - 1].position.x = x;
+          jogadores[index - 1].position.y = y;
   
           if (index === player.index) {
             stroke(10);
             fill("red");
-            ellipse(x, y, 60, 60);
-  
-           
+            ellipse(x, y, 1000, 1000);
           }
         }*/
         drawSprites();
-      }
+      //}
+      
+    }
 
     end() {
       console.log("Fim de Jogo");
@@ -138,16 +166,16 @@ class Game {
       }
       
     numeraçao(){
-        console.log("aa")
-        codigoCowboy[icowboy]=Number(entrada_cowboy.value())
-        entrada_cowboy.value("");
+        console.log("aa");
+        codigoCowboy[icowboy]=Number(this.entrada_cowboy.value());
+        this.entrada_cowboy.value("");
         icowboy+=1;
         console.log("ffff");
       }
 
     numeraçaoInimigo(){
-        codigoInimigo[iinimigo]=Number(entrada_inimigo.value());
-        entrada_inimigo.value("");
+        codigoInimigo[iinimigo]=Number(this.entrada_inimigo.value());
+        this.entrada_inimigo.value("");
         iinimigo+=1;
       
       }
@@ -165,7 +193,7 @@ class Game {
             tiro.velocityX=-18;
           }
           else{
-            tiro.velocityX=18
+            tiro.velocityX=18;
           }
           console.log("qq");
         }

@@ -22,24 +22,25 @@ var balaInimigo;
 var balaInimigoImg;
 var database;
 var game, form, player, playerCount, gameState;
+var allPlayers, jogadores;
 
 // carrega as animaçoes 
 function preload()
 {
-  fundoIMG=loadImage("th.jpg");
-  cowboyImg=loadImage("teste.png");
-  indioImg=loadImage("teste3.png");
-  bandidoImg=loadImage("teste2.png");
-  armaImg=loadImage("arma.png");
-  balaImg=loadImage("bala3.png");
-  armaInimigoImg=loadImage("arma2.png");
-  balaInimigoImg=loadImage("bala32.png");
+  fundoIMG=loadImage("assets/th.jpg");
+  cowboyImg=loadImage("assets/teste.png");
+  indioImg=loadImage("assets/teste3.png");
+  bandidoImg=loadImage("assets/teste2.png");
+  armaImg=loadImage("assets/arma.png");
+  balaImg=loadImage("assets/bala3.png");
+  armaInimigoImg=loadImage("assets/arma2.png");
+  balaInimigoImg=loadImage("assets/bala32.png");
 }
 
 function setup(){
   createCanvas(windowWidth,windowHeight);
 
-  //database = firebase.database();
+  database = firebase.database();
   //console.log(database);
 
   game = new Game();

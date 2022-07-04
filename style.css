@@ -4,8 +4,13 @@ html, body {
   overflow: hidden;
 }
 
-@font-face {
-  font-family: vollkorn;
+@font-face{
+  font-family: viejo-oeste;
+  src: url(./assets/Viejo-Oeste.ttf);
+}
+
+@font-face{
+  font-family: volkorn;
   src: url(./assets/Vollkorn-Bold.ttf);
 }
 
@@ -14,26 +19,44 @@ canvas {
 }
 
 .gameTitle{
-  width: 75%;
-  height: 80px;
+  font-size: 80px;
+  color: whitesmoke;
+  font-family: viejo-oeste;
+  text-align: center;
 }
 
 .gameTitleAfterEffect{
-  width: 25%;
-  height: 80px;
+  font-size: 50px;
+  color: whitesmoke;
+  font-family: viejo-oeste;
+  text-align: left;
 }
 
 .greeting{
   font-size: 40px;
-  color: white;
-  font-family: vollkorn;
+  color: whitesmoke;
+  font-family: volkorn;
   text-align: center;
 }
 
 .customInput {
   width:200px;
   height:30px;
-  border: 3px solid white;
+  border: 3px solid whitesmoke;
+  border-radius: 5px;
+  padding: 5px;
+  background-color:transparent;
+  font-size: 20px;
+  outline:none;
+  color:white;
+  font-family: volkorn;
+  text-align: center;
+}
+
+.numberInput {
+  width:60px;
+  height:60px;
+  border: 3px solid whitesmoke;
   border-radius: 5px;
   padding: 5px;
   background-color:transparent;
@@ -45,7 +68,7 @@ canvas {
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white;
+  color: whitesmoke;
   opacity: 0.5; /* Firefox */
 }
 
@@ -53,7 +76,7 @@ canvas {
   width:180px;
   height:50px;
   background-color: #fea834;
-  border: 3px solid white;
+  border: 3px solid whitesmoke;
   color: #FFFF;
   font-weight:bold;
   border-radius: 10px;
@@ -62,7 +85,7 @@ canvas {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  font-family: vollkorn;
+  font-family: volkorn;
   margin: 4px 2px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
@@ -71,10 +94,10 @@ canvas {
 }
 
 
-.resetButton {
+.playButton {
   width:60px;
   height:60px;
-  background-image: url('./assets/reset.png');
+  background-image: url('./assets/botao.png');
   background-size: cover;
   border-radius: 30px;
   display: inline-block;
@@ -87,7 +110,7 @@ canvas {
 .resetText{
   font-size: 25px;
   color: white;
-  font-family: vollkorn;
+  font-family: viejo-oeste;
   text-align: center;
   text-shadow: -1px 1px 0 #ff1744,
                 1px 1px 0 #ff1744,
@@ -98,7 +121,7 @@ canvas {
 .leadersText{
   font-size: 20px;
   color: white;
-  font-family: vollkorn;
+  font-family: viejo-oeste;
   text-align: center;
 }
 
