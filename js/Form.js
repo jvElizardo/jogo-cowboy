@@ -7,10 +7,10 @@ class Form {
     }
   
     setElementsPosition() {
-      this.title.position(200, 50);
-      this.input.position(width / 2 - 110, height / 2 - 80);
-      this.playButton.position(width / 2 - 90, height / 2 - 20);
-      this.greeting.position(width / 2 - 300, height / 2 - 100);
+      this.title.position(width/4, height/10);
+      this.input.position(width/2 - 110, height/2 - 80);
+      this.playButton.position(width/2 - 90, height/2 - 20);
+      this.greeting.position(width/2 - 300, height/2 - 100);
     }
   
     setElementsStyle() {
@@ -31,7 +31,7 @@ class Form {
         this.input.hide();
         this.playButton.hide();
         var message = `
-        Olá ${this.input.value()}
+        Olá ${this.input.value()},
         </br>espere o outro jogador entrar...`;
         this.greeting.html(message);
         playerCount += 1;
