@@ -4,25 +4,25 @@ class Player {
       this.index = null;
       this.positionX = 0;
       this.positionY = 0;
-      this.time = 0;
+      this.death = false;
     }
   
     addPlayer() {
       var playerIndex = "players/player" + this.index;
   
       if (this.index === 1) {
-        this.positionX = width/4+43;
-        this.positionY = height-80;
+        this.positionX = width/4;
+        this.positionY = height-65; 
       } else {
-        this.positionX = width-285;
-        this.positionY = height-75;
+        this.positionX = width-300;
+        this.positionY = height-55;
       }
   
       database.ref(playerIndex).set({
         name: this.name,
         positionX : this.positionX,
         positionY : this.positionY,
-        time: this.time,
+        death: this.death,
       });
     }
   
@@ -45,7 +45,7 @@ class Player {
       database.ref(playerIndex).update({
         positionX : this.positionX,
         positionY : this.positionY,
-        time: this.time,
+        death: this.death,
       });
     }
   
@@ -64,5 +64,7 @@ class Player {
         this.positionY = data.positionY;
       });
     }
+
+
   }//class
   

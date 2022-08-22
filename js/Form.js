@@ -39,6 +39,7 @@ class Form {
         player.index = playerCount;
         player.addPlayer();
         player.updateCount(playerCount);
+        player.getShoot();
       });
     }
   
